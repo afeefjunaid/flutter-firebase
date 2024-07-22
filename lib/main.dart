@@ -4,7 +4,7 @@ import 'package:productcatalogue/src/splashScreen/view/splashScreenView.dart';
 void main() {
   runApp(const MyApp());
 }
-
+// add comment for branch
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
