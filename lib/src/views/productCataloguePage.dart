@@ -226,7 +226,6 @@ class _ProductCatalogueState extends State<productCataloguePage> {
           );
         });
   }
-
   @override
   Widget build(BuildContext context) {
     del();
