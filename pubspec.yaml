@@ -46,6 +46,8 @@ dependencies:
   flutter_launcher_icons: ^0.13.1
   flutter_rating_stars: ^1.1.0
   star_rating: ^0.11.0
+  connectivity_plus: ^5.0.2
+  provider: ^6.1.2
 
 dev_dependencies:
   flutter_test:

@@ -1,6 +1,9 @@
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:productcatalogue/src/commonWidgets/commonWidgets.dart';
+import 'package:productcatalogue/src/productDetail/Model/productDetailModel.dart';
 import 'package:star_rating/star_rating.dart';
 
 class productDetailView extends StatefulWidget {
@@ -11,6 +14,9 @@ class productDetailView extends StatefulWidget {
 }
 
 class _productDetailViewState extends State<productDetailView> {
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

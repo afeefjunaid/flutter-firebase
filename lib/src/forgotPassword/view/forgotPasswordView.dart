@@ -9,6 +9,8 @@ class forgotPasswordView extends StatefulWidget{
 }
 
 class _forgotPasswordView extends State<forgotPasswordView>{
+  TextEditingController emailController=TextEditingController();
+
   @override
   Widget build(BuildContext context){
     return Scaffold(
@@ -26,7 +28,7 @@ class _forgotPasswordView extends State<forgotPasswordView>{
           spacingInHeight(context, 0.06),
           Text("Please enter your email address. You will receive a link to create a new password via email" ,style: TextStyle(fontSize: 16)),
           spacingInHeight(context, 0.03),
-          buildTextFormField("Enter Your Email"),
+          buildTextFormField("Enter Your Email",emailController),
           spacingInHeight(context, 0.06),
           buildButton("Send",(){}),
         ]),

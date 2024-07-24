@@ -2,15 +2,17 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:star_rating/star_rating.dart';
-
 import '../home/view/homeScreenView.dart';
 import '../shop/View/shopView.dart';
 
-buildTextFormField(String? hintText) {
+buildTextFormField(String? hintText,TextEditingController? controller,{bool obscureText=false,String? Function(String?)? validator}) {
   return Padding(
     padding: const EdgeInsets.all(6.0),
     child: TextFormField(
+      controller:controller ,
+      obscureText: obscureText,
       cursorColor: Colors.red,
+      validator: validator,
       decoration: InputDecoration(
           hintText: hintText,
           border: OutlineInputBorder(
@@ -320,7 +322,7 @@ Widget buildTextImageStack(String imagePath, String text, Color textColor) {
     ],
   );
 }
-bottomNavigationBarWidget(BuildContext context,int currentIndex, ) {
+bottomNavigationBarWidget(BuildContext context,int currentIndex ) {
   return BottomNavigationBar(
     items: [
       BottomNavigationBarItem(

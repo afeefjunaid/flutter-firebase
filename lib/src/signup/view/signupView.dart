@@ -8,6 +8,12 @@ class signupView extends StatefulWidget{
 }
 
 class _signupView extends State<signupView>{
+
+  TextEditingController emailController=TextEditingController();
+  TextEditingController passwordController=TextEditingController();
+  TextEditingController nameController=TextEditingController();
+
+
   @override
   Widget build(BuildContext context){
     return Scaffold(
@@ -18,11 +24,11 @@ class _signupView extends State<signupView>{
           [
             headingText("Signup"),
             spacingInHeight(context,0.01),
-            buildTextFormField("Enter Your Name"),
+            buildTextFormField("Enter Your Name",nameController),
             spacingInHeight(context,0.01),
-            buildTextFormField("Enter Your Email"),
+            buildTextFormField("Enter Your Email",emailController),
             spacingInHeight(context,0.01),
-            buildTextFormField("Enter Your Password"),
+            buildTextFormField("Enter Your Password",passwordController),
             spacingInHeight(context,0.01),
             alignTextToLeft("Already Have an ", "Account", (){
               Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>loginView()));
