@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:productcatalogue/src/Connectivity/viewModel/connectivityViewModel.dart';
+import 'package:productcatalogue/src/Scaffold/viewModel/scaffoldViewModel.dart';
 import 'package:productcatalogue/src/home/view/homeScreenView.dart';
 import 'package:productcatalogue/src/home/viewModel/homeViewModel.dart';
 import 'package:productcatalogue/src/login/view/loginView.dart';
 import 'package:productcatalogue/src/login/viewModel/loginViewModel.dart';
-
 import 'package:productcatalogue/src/splashScreen/view/splashScreenView.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
@@ -18,8 +19,11 @@ Future<void> main() async {
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context)=>loginViewModel()),
-        ChangeNotifierProvider(create: (context)=>homeViewModel()),
+        ChangeNotifierProvider(create: (_)=>connectivityViewModel()),
+        ChangeNotifierProvider(create: (_)=>loginViewModel()),
+        ChangeNotifierProvider(create: (_)=>homeViewModel()),
+        ChangeNotifierProvider(create: (_)=>homeViewModel()),
+
       ],
       child: MyApp(),
     ),
@@ -37,7 +41,10 @@ class MyApp extends StatelessWidget {
           '/loginView': (context) => loginView(),
           '/homeScreenView': (context) => homeScreenView(),
         },
-      home: splashScreenView()
+      home:  Scaffold(
+        body:  splashScreenView(),
+      )
     );
   }
 }
+

@@ -1,8 +1,10 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:productcatalogue/src/Scaffold/viewModel/scaffoldViewModel.dart';
 import 'package:provider/provider.dart';
 import 'package:star_rating/star_rating.dart';
 import '../../productDetail/view/productDetailView.dart';
-import '../model/homeScreenModel.dart';
 import '../../commonWidgets/commonWidgets.dart';
 import '../viewModel/homeViewModel.dart';
 
@@ -14,8 +16,7 @@ class homeScreenView extends StatefulWidget {
 class _HomeScreenViewState extends State<homeScreenView> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      resizeToAvoidBottomInset: true,
+    return BaseScaffold(
       body: Container(
         decoration: gradientBackground([
           Colors.red.shade100,
@@ -28,29 +29,35 @@ class _HomeScreenViewState extends State<homeScreenView> {
                 onPressed: () {}),
             SizedBox(height: 20),
             buildSectionTitle("Random"),
-            Consumer<homeViewModel>(
-              builder: (context,viewModel,child)
-              {
-                return FutureBuilder(
-                  future: homeViewModelObject.futureProducts,
-                  builder: (context, snapshot) {
-                    if (snapshot.connectionState == ConnectionState.waiting) {
-                      return Center(child: CircularProgressIndicator());
-                    } else if (snapshot.hasError) {
-                      return Center(child: Text("${snapshot.error}"));
-                    } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-                      return Center(child: Text('No products found'));
-                    } else {
-                      final products = snapshot.data!;
-                      return Container(
-                        height: 250,
-                        child: ListView.builder(
-                          scrollDirection: Axis.horizontal,
-                          itemCount: products.length,
-                          itemBuilder: (context, index) {
-                            double rate = products[index].rating ?? 0.0;
-                            return Container(
-                              width: 150,
+            Consumer<homeViewModel>(builder: (context, viewModel, child) {
+              return FutureBuilder(
+                future: homeViewModelObject.futureProducts,
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return Center(child: CircularProgressIndicator());
+                  } else if (snapshot.hasError) {
+                    return Center(child: Text("${snapshot.error}"));
+                  } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
+                    return Center(child: Text('No products found'));
+                  } else {
+                    final products = snapshot.data!;
+                    return Container(
+                      height: 250,
+                      child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: products.length,
+                        itemBuilder: (context, index) {
+                          double rate = products[index].rating ?? 0.0;
+                          return Container(
+                            width: 150,
+                            child: InkWell(
+                              onTap: () {
+                                Navigator.pushReplacement(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => productDetailView(
+                                            selectedItem: products[index])));
+                              },
                               child: Card(
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -68,17 +75,20 @@ class _HomeScreenViewState extends State<homeScreenView> {
                                           height: 30,
                                           decoration: BoxDecoration(
                                             color: Colors.red,
-                                            borderRadius: BorderRadius.circular(15),
+                                            borderRadius:
+                                                BorderRadius.circular(15),
                                           ),
                                           child: IconButton(
                                             onPressed: () {
                                               viewModel.toggleButton(index);
                                             },
                                             icon: Icon(
-                                              viewModel.favouriteStatus[index] ==
-                                                  false
+                                              viewModel.favouriteStatus[
+                                                          index] ==
+                                                      false
                                                   ? Icons.favorite
-                                                  : Icons.favorite_border_outlined,
+                                                  : Icons
+                                                      .favorite_border_outlined,
                                               size: 15,
                                               color: Colors.white,
                                             ),
@@ -88,8 +98,8 @@ class _HomeScreenViewState extends State<homeScreenView> {
                                     ]),
                                     SizedBox(height: 8),
                                     Padding(
-                                      padding:
-                                      const EdgeInsets.only(left: 3.0, top: 10),
+                                      padding: const EdgeInsets.only(
+                                          left: 3.0, top: 10),
                                       child: Text(products[index].title,
                                           maxLines: 1,
                                           overflow: TextOverflow.ellipsis,
@@ -97,34 +107,34 @@ class _HomeScreenViewState extends State<homeScreenView> {
                                               fontWeight: FontWeight.w500)),
                                     ),
                                     Padding(
-                                      padding:
-                                      const EdgeInsets.only(left: 3.0, top: 5),
+                                      padding: const EdgeInsets.only(
+                                          left: 3.0, top: 5),
                                       child: StarRating(
                                         length: 5,
                                         rating: rate,
                                         color: Colors.yellow[800],
                                         starSize: 16,
-                                        mainAxisAlignment: MainAxisAlignment.start,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
                                       ),
                                     ),
                                     Padding(
-                                      padding:
-                                      const EdgeInsets.only(left: 3.0, top: 5),
+                                      padding: const EdgeInsets.only(
+                                          left: 3.0, top: 5),
                                       child: Text("${products[index].price}\$"),
                                     ),
                                   ],
                                 ),
                               ),
-                            );
-                          },
-                        ),
-                      );
-                    }
-                  },
-                );
-              }
-
-            ),
+                            ),
+                          );
+                        },
+                      ),
+                    );
+                  }
+                },
+              );
+            }),
             SizedBox(height: 15),
             buildImageStack("asset/images/Small banner.png", "Clothes"),
             SizedBox(height: 20),
@@ -133,7 +143,9 @@ class _HomeScreenViewState extends State<homeScreenView> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => productDetailView()),
+                  MaterialPageRoute(
+                      builder: (context) =>
+                          productDetailView(selectedItem: null)),
                 );
               },
               child: buildHorizontalScrollView(

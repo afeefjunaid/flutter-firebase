@@ -4,6 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:productcatalogue/src/forgotPassword/view/forgotPasswordView.dart';
 import 'package:productcatalogue/src/home/view/homeScreenView.dart';
 import 'package:productcatalogue/src/signup/view/signupView.dart';
+import '../../Scaffold/viewModel/scaffoldViewModel.dart';
 import '../../commonWidgets/commonWidgets.dart';
 import '../../API/apiClient.dart';
 
@@ -19,9 +20,13 @@ class _LoginViewState extends State<loginView> {
   var loginkey = GlobalKey<FormState>();
 
   @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      resizeToAvoidBottomInset: true,
+     return BaseScaffold(
       body: Container(
         decoration: gradientBackground([
           Colors.red.shade100,

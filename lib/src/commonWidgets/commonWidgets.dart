@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:star_rating/star_rating.dart';
+import '../Connectivity/viewModel/connectivityViewModel.dart';
 import '../home/view/homeScreenView.dart';
 import '../shop/View/shopView.dart';
 
@@ -399,3 +401,4 @@ categoryCard(String title, String imagePath) {
     ),
   );
 }
+
