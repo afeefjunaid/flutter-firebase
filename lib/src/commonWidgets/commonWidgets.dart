@@ -1,17 +1,18 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:star_rating/star_rating.dart';
-import '../Connectivity/viewModel/connectivityViewModel.dart';
 import '../home/view/homeScreenView.dart';
+import '../home/viewModel/homeViewModel.dart';
+import '../productDetail/view/productDetailView.dart';
 import '../shop/View/shopView.dart';
 
-buildTextFormField(String? hintText,TextEditingController? controller,{bool obscureText=false,String? Function(String?)? validator}) {
+buildTextFormField(String? hintText, TextEditingController? controller,
+    {bool obscureText = false, String? Function(String?)? validator}) {
   return Padding(
     padding: const EdgeInsets.all(6.0),
     child: TextFormField(
-      controller:controller ,
+      controller: controller,
       obscureText: obscureText,
       cursorColor: Colors.red,
       validator: validator,
@@ -27,7 +28,7 @@ buildTextFormField(String? hintText,TextEditingController? controller,{bool obsc
   );
 }
 
-buildButton(String btnName,void Function()? onTap) {
+buildButton(String btnName, void Function()? onTap) {
   return Padding(
     padding: const EdgeInsets.all(8.0),
     child: InkWell(
@@ -90,9 +91,10 @@ buildSocialMediaIcon(String assetPath) {
   );
 }
 
-alignTextToLeft(String textwithoutcolor,String textwithcolor ,void Function()? onTap ) {
+alignTextToLeft(
+    String textwithoutcolor, String textwithcolor, void Function()? onTap) {
   return Padding(
-    padding:EdgeInsets.only(right: 8.0),
+    padding: EdgeInsets.only(right: 8.0),
     child: Align(
       alignment: Alignment.centerRight,
       child: RichText(
@@ -101,11 +103,9 @@ alignTextToLeft(String textwithoutcolor,String textwithcolor ,void Function()? o
           children: [
             TextSpan(text: textwithoutcolor),
             TextSpan(
-              text: textwithcolor,
-              style: const TextStyle(color: Colors.red),
-              recognizer: TapGestureRecognizer()
-                ..onTap = onTap
-            ),
+                text: textwithcolor,
+                style: const TextStyle(color: Colors.red),
+                recognizer: TapGestureRecognizer()..onTap = onTap),
           ],
         ),
       ),
@@ -113,41 +113,35 @@ alignTextToLeft(String textwithoutcolor,String textwithcolor ,void Function()? o
   );
 }
 
-headingText(String txt){
+headingText(String txt) {
   return Padding(
     padding: EdgeInsets.only(top: 20.0, left: 10),
-    child: Text(txt,
+    child: Text(
+      txt,
       style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40),
     ),
   );
 }
 
-spacingInHeight(BuildContext con, double space){
-  return SizedBox(height: MediaQuery
-      .of(con)
-      .size
-      .height * space);
+spacingInHeight(BuildContext con, double space) {
+  return SizedBox(height: MediaQuery.of(con).size.height * space);
 }
 
-gradientBackground(List<Color> colors){
+gradientBackground(List<Color> colors) {
   return BoxDecoration(
     gradient: LinearGradient(
-      begin: Alignment.bottomRight,
-      end: Alignment.topLeft,
-      colors: colors
-    ),
+        begin: Alignment.bottomRight, end: Alignment.topLeft, colors: colors),
   );
 }
 
-listViewWithPadding(List<Widget> children){
-  return Padding(padding: EdgeInsets.only(left: 8.0, right: 8),
+listViewWithPadding(List<Widget> children) {
+  return Padding(
+    padding: EdgeInsets.only(left: 8.0, right: 8),
     child: ListView(
-      children:children ,
+      children: children,
     ),
-
   );
 }
-
 
 buildImageStack(String imagePath, String text, {VoidCallback? onPressed}) {
   return Stack(
@@ -189,188 +183,61 @@ buildImageStack(String imagePath, String text, {VoidCallback? onPressed}) {
   );
 }
 
-Widget buildSimpleImage(String imagePath) {
-  return Image.asset(
-    width: double.infinity,
-    fit: BoxFit.fill,
-    imagePath,
-  );
-}
-
-Widget buildSectionTitle(String title) {
+Widget buildSectionTitle(String? title) {
   return Padding(
     padding: const EdgeInsets.only(left: 10.0),
     child: Text(
-      title,
+      (title?.isEmpty == true || title == null || title == "") ? "All" : title,
       style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
     ),
   );
 }
 
-Widget buildHorizontalScrollView(String image,String image2,String Title,String Title1,String price,String price1,bool isSale, double rate,double rate1,{required bool buttonState, required Function toggleButton}) {
-  return Padding(
-    padding: const EdgeInsets.only(bottom: 8.0, top: 10),
-    child: SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: Row(
-        mainAxisSize: MainAxisSize.max,
-        children: [
-          SizedBox(width: 12.0),
-          buildProductColumn(image,Title, price, isSale, buttonState, toggleButton,rate),
-          SizedBox(width: 12.0),
-          buildProductColumn(image2,Title1, price1, isSale, buttonState, toggleButton,rate1),
-        ],
-      ),
-    ),
-  );
-}
-
-Widget buildProductColumn(String imagePath,String title, String price, bool isSale, bool buttonState, Function toggleButton,double rate) {
-  return Column(
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: [
-      Stack(
-        clipBehavior: Clip.none,
-        children: [
-          Image.asset(
-            imagePath,
-            fit: BoxFit.cover,
-            width: 160,
-            height: 200,
-          ),
-          Positioned(
-            right: 2,
-            bottom: -13,
-            child: Container(
-              width: 30,
-              height: 30,
-              decoration: BoxDecoration(
-                color: Colors.red,
-                borderRadius: BorderRadius.circular(15),
-              ),
-              child: IconButton(
-                onPressed: () => toggleButton(),
-                icon: Icon(
-                  buttonState ? Icons.favorite_border_outlined : Icons.favorite,
-                  size: 15,
-                  color: Colors.white,
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
-      Padding(
-        padding: const EdgeInsets.only(right: 30.0,top: 5),
-        child: StarRating(
-          length: 5,
-          rating: rate,
-          color: Colors.yellow[800],
-          starSize: 16,
-          mainAxisAlignment: MainAxisAlignment.start,
-        ),
-      ),
-      Text(
-        title,
-        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-      ),
-      Text(
-        price,
-        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-      ),
-    ],
-  );
-}
-
-Widget buildTwoColumnImages() {
-  return Row(
-    mainAxisSize: MainAxisSize.min,
-    crossAxisAlignment: CrossAxisAlignment.start,
-    mainAxisAlignment: MainAxisAlignment.start,
-    children: [
-      Column(
-        children: [
-          buildTextImageStack("asset/images/whitebox.png", "Summer\nsale", Colors.red),
-          buildTextImageStack("asset/images/pic2.png", "Black", Colors.white),
-        ],
-      ),
-      Image.asset(
-        width: 190,
-        height: 400,
-        fit: BoxFit.fill,
-        "asset/images/pic1.png",
-      ),
-    ],
-  );
-}
-
-Widget buildTextImageStack(String imagePath, String text, Color textColor) {
-  return Stack(
-    children: [
-      Image.asset(
-        width: 200,
-        height: 200,
-        fit: BoxFit.fill,
-        imagePath,
-      ),
-      Positioned(
-        left: 10,
-        top: 50,
-        child: Text(
-          text,
-          style: TextStyle(color: textColor, fontSize: 40, fontWeight: FontWeight.bold),
-        ),
-      ),
-    ],
-  );
-}
-bottomNavigationBarWidget(BuildContext context,int currentIndex ) {
+bottomNavigationBarWidget(BuildContext context, int currentIndex) {
   return BottomNavigationBar(
-    items: [
-      BottomNavigationBarItem(
-        icon: IconButton(
-          onPressed: () {
-            Navigator.pushReplacement(context,
-                MaterialPageRoute(builder: (context) => homeScreenView()));
-          },
-          icon: Icon(Icons.home_outlined),
+      items: [
+        BottomNavigationBarItem(
+          icon: IconButton(
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => homeScreenView()));
+            },
+            icon: Icon(Icons.home_outlined),
+          ),
+          label: 'Home',
         ),
-        label: 'Home',
-      ),
-      BottomNavigationBarItem(
-        icon: IconButton(
-          onPressed: () {
-            Navigator.pushReplacement(
-                context, MaterialPageRoute(builder: (context) => shopView()));
-          },
-          icon: Icon(Icons.shopping_cart_outlined),
+        BottomNavigationBarItem(
+          icon: IconButton(
+            onPressed: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => shopView()));
+            },
+            icon: Icon(Icons.shopping_cart_outlined),
+          ),
+          label: 'Shop',
         ),
-        label: 'Shop',
-      ),
-      BottomNavigationBarItem(
-        icon: Icon(Icons.shopping_bag_outlined),
-        label: 'Bag',
-      ),
-      BottomNavigationBarItem(
-        icon: Icon(Icons.favorite_border),
-        label: 'Favourites',
-      ),
-      BottomNavigationBarItem(
-        icon: Icon(Icons.person_2_outlined),
-        label: 'Profile',
-      ),
-    ],
-    showSelectedLabels: true,
-    showUnselectedLabels: true,
-    currentIndex: currentIndex,
-    unselectedItemColor: Colors.black,
-    selectedItemColor: Colors.red,
-    onTap: (int index){
-      currentIndex=index;
-  }
-  );
+        BottomNavigationBarItem(
+          icon: Icon(Icons.shopping_bag_outlined),
+          label: 'Bag',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.favorite_border),
+          label: 'Favourites',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.person_2_outlined),
+          label: 'Profile',
+        ),
+      ],
+      showSelectedLabels: true,
+      showUnselectedLabels: true,
+      currentIndex: currentIndex,
+      unselectedItemColor: Colors.black,
+      selectedItemColor: Colors.red,
+      onTap: (int index) {
+        currentIndex = index;
+      });
 }
-
 
 categoryCard(String title, String imagePath) {
   return Padding(
@@ -402,3 +269,125 @@ categoryCard(String title, String imagePath) {
   );
 }
 
+listViewBuilder({String? category}) {
+  return FutureBuilder(
+    future: homeViewModelObject.futureProducts,
+    builder: (context, snapshot) {
+      if (snapshot.connectionState == ConnectionState.waiting) {
+        return Center(child: CircularProgressIndicator());
+      } else if (snapshot.hasError) {
+        return Center(child: Text("${snapshot.error}"));
+      } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
+        return Center(child: Text('No products found'));
+      } else {
+        final products = snapshot.data!;
+        final filteredProducts = category == null
+            ? products
+            : products
+                .where((product) => product.category == category)
+                .toList();
+        return Container(
+          height: 250,
+          child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            itemCount: filteredProducts.length,
+            itemBuilder: (context, index) {
+              double rate = filteredProducts[index].rating ?? 0.0;
+              return Container(
+                width: 150,
+                child: InkWell(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => productDetailView(
+                                selectedItem: filteredProducts[index])));
+                  },
+                  child: Stack(clipBehavior: Clip.none, children: [
+                    Card(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Image.network(filteredProducts[index].image,
+                              height: 150,
+                              width: double.infinity,
+                              fit: BoxFit.cover),
+                          SizedBox(height: 8),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 3.0, top: 10),
+                            child: Text(filteredProducts[index].title,
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(fontWeight: FontWeight.w500)),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 3.0, top: 5),
+                            child: StarRating(
+                              length: 5,
+                              rating: rate,
+                              color: Colors.yellow[800],
+                              starSize: 16,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 5, top: 5),
+                            child: Text("${filteredProducts[index].price}\$"),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Consumer<homeViewModel>(
+                        builder: (context, viewModel, child) {
+                      return Positioned(
+                        right: 5,
+                        bottom: 80,
+                        child: InkWell(
+                          onTap: () {
+                            viewModel.toggleButton(index);
+                          },
+                          child: Container(
+                            width: 30,
+                            height: 30,
+                            decoration: BoxDecoration(
+                              color: Colors.red,
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                            child: Icon(
+                              viewModel.favouriteStatus[index] == false
+                                  ? Icons.favorite
+                                  : Icons.favorite_border_outlined,
+                              size: 15,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      );
+                    }),
+                  ]),
+                ),
+              );
+            },
+          ),
+        );
+      }
+    },
+  );
+}
+
+buildImageForCategories(String imgPath,String imageText,double top,double bottom, double left, double right){
+  return Expanded(
+    child: Stack(
+      children: [
+        Container(
+            child: Image.asset(imgPath)),
+        Positioned(
+            top: top,
+            bottom: bottom,
+            left: left,
+            right: right,
+            child: Text(imageText))
+      ],
+    ),
+  );
+}

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:productcatalogue/src/Scaffold/viewModel/scaffoldViewModel.dart';
 
 import '../../commonWidgets/commonWidgets.dart';
 
@@ -19,7 +20,7 @@ class _shopViewState extends State<shopView> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return BaseScaffold(
       appBar: AppBar(
         backgroundColor: Colors.red.shade50,
         title: Row(

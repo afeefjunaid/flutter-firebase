@@ -5,16 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0d9b799a-49fc-4442-b7fb-fb45e8271a36" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/src/Scaffold/viewModel/scaffoldViewModel.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/asset/images/Jewelry (2).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/asset/images/Jewelry (3).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/asset/images/electronics.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/asset/images/jewelry.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/asset/images/mens clothing.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/asset/images/women clothing.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/src/Selected Category/view/selectedCategoryView.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/Connectivity/viewModel/connectivityViewModel.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/Connectivity/viewModel/connectivityViewModel.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/Scaffold/viewModel/scaffoldViewModel.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/Scaffold/viewModel/scaffoldViewModel.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/src/commonWidgets/commonWidgets.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/commonWidgets/commonWidgets.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/forgotPassword/view/forgotPasswordView.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/forgotPassword/view/forgotPasswordView.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/src/home/view/homeScreenView.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/home/view/homeScreenView.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/src/login/view/loginView.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/login/view/loginView.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/src/productDetail/view/productDetailView.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/productDetail/view/productDetailView.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/shop/View/shopView.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/shop/View/shopView.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/signup/view/signupView.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/signup/view/signupView.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/src/splashScreen/view/splashScreenView.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/splashScreen/view/splashScreenView.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/splashScreen/viewModel/splashScreenViewModel.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/Connectivity/viewModel/connectivityViewModel.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +86,7 @@
     &quot;git-widget-placeholder&quot;: &quot;ProductCatalogue&quot;,
     &quot;io.flutter.reload.alreadyRun&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Flutter/Flutter Projects/adminpanel&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Flutter/Flutter Projects/productcatalogue/asset/images&quot;,
     &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
   }
 }</component>

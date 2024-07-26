@@ -31,7 +31,7 @@ class _signupView extends State<signupView>{
             buildTextFormField("Enter Your Password",passwordController),
             spacingInHeight(context,0.01),
             alignTextToLeft("Already Have an ", "Account", (){
-              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>loginView()));
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>loginView()));
             }),
             spacingInHeight(context,0.03),
             buildButton("SIGNUP",(){}),

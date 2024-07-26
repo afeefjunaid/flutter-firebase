@@ -2,9 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:productcatalogue/src/login/view/loginView.dart';
-
-import '../../Scaffold/viewModel/scaffoldViewModel.dart';
 import '../../commonWidgets/commonWidgets.dart';
 
 class splashScreenView extends StatefulWidget{
@@ -18,7 +15,7 @@ class _splashScreenView extends State<splashScreenView>{
   void initState() {
     super.initState();
     Timer(Duration(seconds: 2),(){
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>loginView()));
+      Navigator.pushReplacementNamed(context, '/loginView');
     });
   }
 

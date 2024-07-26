@@ -1,11 +1,7 @@
-import 'dart:convert';
-import 'package:http/http.dart' as http;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:productcatalogue/src/Scaffold/viewModel/scaffoldViewModel.dart';
 import 'package:productcatalogue/src/commonWidgets/commonWidgets.dart';
-import 'package:productcatalogue/src/home/view/homeScreenView.dart';
-import 'package:productcatalogue/src/productDetail/Model/productDetailModel.dart';
 import 'package:provider/provider.dart';
 import 'package:star_rating/star_rating.dart';
 
@@ -13,9 +9,7 @@ import '../../home/viewModel/homeViewModel.dart';
 
 class productDetailView extends StatefulWidget {
   dynamic selectedItem;
-  productDetailView({
-    super.key,
-    required this.selectedItem,
+  productDetailView({super.key, required this.selectedItem,
   });
 
   @override
@@ -23,23 +17,12 @@ class productDetailView extends StatefulWidget {
 }
 
 class _productDetailViewState extends State<productDetailView> {
-  String splitTitleEveryThreeWords(String title) {
-    List<String> words = title.split(' ');
-    List<String> lines = [];
-
-    for (int i = 0; i < words.length; i += 3) {
-      int end = (i + 3 < words.length) ? i + 3 : words.length;
-      lines.add(words.sublist(i, end).join(' '));
-    }
-
-    return lines.join('\n');
-  }
-
   @override
   Widget build(BuildContext context) {
-    final product = widget.selectedItem;
+    final category = ModalRoute.of(context)?.settings.arguments;
     return BaseScaffold(
-        body: Container(
+        body:
+        Container(
       decoration: gradientBackground([
         Colors.red.shade100,
         Colors.white,
@@ -52,7 +35,7 @@ class _productDetailViewState extends State<productDetailView> {
               height: 400,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: NetworkImage(product.image),
+                  image: NetworkImage(widget.selectedItem.image),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -66,10 +49,7 @@ class _productDetailViewState extends State<productDetailView> {
                     borderRadius: BorderRadius.circular(10)),
                 child: IconButton(
                   onPressed: () {
-                    Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => homeScreenView()));
+                    Navigator.pop(context);
                   },
                   icon: Icon(
                     Icons.arrow_back_ios_new_outlined,
@@ -89,10 +69,10 @@ class _productDetailViewState extends State<productDetailView> {
                   child: Consumer<homeViewModel>(
                     builder: (context, viewModel, child) => IconButton(
                       onPressed: () {
-                        viewModel.toggleButton(product.id - 1);
+                        viewModel.toggleButton(widget.selectedItem.id - 1);
                       },
                       icon: Icon(
-                        viewModel.favouriteStatus[product.id - 1] ==
+                        viewModel.favouriteStatus[widget.selectedItem.id - 1] ==
                                 false
                             ? Icons.favorite
                             : Icons.favorite_border_outlined,
@@ -108,17 +88,17 @@ class _productDetailViewState extends State<productDetailView> {
           padding: const EdgeInsets.only(top: 15.0),
           child: Padding(
             padding: const EdgeInsets.only(left: 15, right: 15),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            child: Wrap(
               children: [
                 Text(
-                  splitTitleEveryThreeWords(product.title),
+                  // splitTitleEveryThreeWords(product.title),
+                  widget.selectedItem.title,
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
                   softWrap: true,
                   maxLines: 2,
                 ),
-                Text(
-                  "\$${product.price}",
+                spacingInHeight(context, 0.03),
+                Text("\$${widget.selectedItem.price}",
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
                 ),
               ],
@@ -129,7 +109,7 @@ class _productDetailViewState extends State<productDetailView> {
         Padding(
           padding: const EdgeInsets.only(left: 15.0, right: 15),
           child: Text(
-            product.category,
+            widget.selectedItem.category,
             style: TextStyle(fontSize: 15),
           ),
         ),
@@ -140,14 +120,14 @@ class _productDetailViewState extends State<productDetailView> {
             length: 5,
             starSize: 20,
             color: Colors.yellow[800],
-            rating: product.rating,
+            rating: widget.selectedItem.rating,
           ),
         ),
         spacingInHeight(context, 0.02),
         Padding(
           padding: const EdgeInsets.only(left: 15.0, right: 15),
           child: Text(
-            "${product.description}",
+            "${widget.selectedItem.description}",
             style: TextStyle(fontSize: 20),
           ),
         ),
@@ -164,3 +144,6 @@ class _productDetailViewState extends State<productDetailView> {
     ));
   }
 }
+
+
+

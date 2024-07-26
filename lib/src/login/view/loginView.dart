@@ -67,7 +67,7 @@ class _LoginViewState extends State<loginView> {
              ),
             ),
             alignTextToLeft("", "Forgot Password", () {
-              Navigator.pushReplacement(
+              Navigator.push(
                   context,
                   MaterialPageRoute(
                       builder: (context) => forgotPasswordView()));
