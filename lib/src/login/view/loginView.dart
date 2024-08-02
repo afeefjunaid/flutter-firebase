@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:productcatalogue/src/forgotPassword/view/forgotPasswordView.dart';
 import 'package:productcatalogue/src/home/view/homeScreenView.dart';
+import 'package:productcatalogue/src/landingScreen/view/landingScreenView.dart';
 import 'package:productcatalogue/src/signup/view/signupView.dart';
 import '../../Scaffold/viewModel/scaffoldViewModel.dart';
 import '../../commonWidgets/commonWidgets.dart';
@@ -27,13 +28,7 @@ class _LoginViewState extends State<loginView> {
   @override
   Widget build(BuildContext context) {
      return BaseScaffold(
-      body: Container(
-        decoration: gradientBackground([
-          Colors.red.shade100,
-          Colors.white,
-          Colors.white,
-        ]),
-        child: listViewWithPadding(
+      body: listViewWithPadding(
           [
             headingText("Login"),
             spacingInHeight(context, 0.01),
@@ -87,7 +82,7 @@ class _LoginViewState extends State<loginView> {
                   MaterialPageRoute(builder: (context) => signupView()));
             }),
             buildButton("Go to home page",(){
-              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>homeScreenView()));
+              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>landingScreen()));
             }),
             spacingInHeight(context, 0.25),
             Center(
@@ -99,7 +94,6 @@ class _LoginViewState extends State<loginView> {
             buildSocialMediaRow(),
           ],
         ),
-      ),
     );
   }
 }

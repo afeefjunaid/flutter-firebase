@@ -1,15 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:productcatalogue/src/Cart/viewModel/cartViewModel.dart';
 import 'package:productcatalogue/src/Scaffold/viewModel/scaffoldViewModel.dart';
 import 'package:productcatalogue/src/commonWidgets/commonWidgets.dart';
 import 'package:provider/provider.dart';
 import 'package:star_rating/star_rating.dart';
-
 import '../../home/viewModel/homeViewModel.dart';
 
 class productDetailView extends StatefulWidget {
   dynamic selectedItem;
+  dynamic heroTag;
   productDetailView({super.key, required this.selectedItem,
+    required this.heroTag
   });
 
   @override
@@ -21,22 +23,18 @@ class _productDetailViewState extends State<productDetailView> {
   Widget build(BuildContext context) {
     final category = ModalRoute.of(context)?.settings.arguments;
     return BaseScaffold(
-        body:
-        Container(
-      decoration: gradientBackground([
-        Colors.red.shade100,
-        Colors.white,
-        Colors.white,
-      ]),
-      child: listViewWithPadding([
+        body: ListView(children:[
         Stack(
           children: [
-            Container(
-              height: 400,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: NetworkImage(widget.selectedItem.image),
-                  fit: BoxFit.cover,
+            Hero(
+              tag: widget.heroTag,
+              child: Container(
+                height: 400,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: NetworkImage(widget.selectedItem.image),
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
             ),
@@ -69,11 +67,10 @@ class _productDetailViewState extends State<productDetailView> {
                   child: Consumer<homeViewModel>(
                     builder: (context, viewModel, child) => IconButton(
                       onPressed: () {
-                        viewModel.toggleButton(widget.selectedItem.id - 1);
+                        viewModel.toggleButton(widget.selectedItem);
                       },
                       icon: Icon(
-                        viewModel.favouriteStatus[widget.selectedItem.id - 1] ==
-                                false
+                        viewModel.favouriteProducts.contains(widget.selectedItem)
                             ? Icons.favorite
                             : Icons.favorite_border_outlined,
                         size: 25,
@@ -82,6 +79,7 @@ class _productDetailViewState extends State<productDetailView> {
                     ),
                   )),
             ),
+
           ],
         ),
         Padding(
@@ -91,7 +89,6 @@ class _productDetailViewState extends State<productDetailView> {
             child: Wrap(
               children: [
                 Text(
-                  // splitTitleEveryThreeWords(product.title),
                   widget.selectedItem.title,
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
                   softWrap: true,
@@ -132,16 +129,23 @@ class _productDetailViewState extends State<productDetailView> {
           ),
         ),
         spacingInHeight(context, 0.02),
-        ElevatedButton(
-          onPressed: () {},
-          child: Text(
-            "ADD TO CART",
-            style: TextStyle(color: Colors.white),
-          ),
-          style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
-        )
-      ]),
-    ));
+        Consumer<cartViewModel>(builder: (context ,p ,child){
+          return ElevatedButton(
+            onPressed: () {
+              p.addItemToCart(widget.selectedItem);
+
+              ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Successfully Added To Cart"),backgroundColor: Colors.red,));
+            },
+            child: Text(
+              "ADD TO CART",
+              style: TextStyle(color: Colors.white),
+            ),
+            style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
+          );
+        })
+
+              ]),
+    );
   }
 }
 

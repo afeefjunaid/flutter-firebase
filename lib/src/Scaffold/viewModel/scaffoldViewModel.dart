@@ -1,14 +1,16 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
+import 'package:productcatalogue/src/No%20Internet%20Screen/view/noInternetScreen.dart';
+import 'package:productcatalogue/src/login/view/loginView.dart';
 import 'package:provider/provider.dart';
 import '../../Connectivity/viewModel/connectivityViewModel.dart';
+import '../../commonWidgets/commonWidgets.dart';
 
 class BaseScaffold extends StatefulWidget {
   final Widget body;
   final Widget? bottomNavigationBar;
   final PreferredSizeWidget? appBar;
-
-  BaseScaffold({super.key, required this.body, this.bottomNavigationBar,this.appBar});
+  BaseScaffold({super.key, required this.body,this.bottomNavigationBar,this.appBar});
 
   @override
   State<BaseScaffold> createState() => _BaseScaffoldState();
@@ -21,36 +23,29 @@ class _BaseScaffoldState extends State<BaseScaffold> {
     connectivityViewModel().initialize();
   }
 
-
   @override
   Widget build(BuildContext context) {
-    Provider.of<connectivityViewModel>(context).initialize();
-
+    connectivityViewModel cc= Provider.of<connectivityViewModel>(context);
+    cc.initialize();
     return Scaffold(
       appBar: widget.appBar,
       resizeToAvoidBottomInset: true,
-      body: Consumer<connectivityViewModel>(
-        builder: (context, connectivity, child) {
-          return connectivity.isConnected
-              ? widget.body
-              : Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text("No Internet"),
-                TextButton(
-                  onPressed: () async {
-                    await connectivity.checkConnectivity();
-                  },
-                  child: Text('Retry'),
-                ),
-              ],
-            ),
-          );
-        },
-      ),
-      bottomNavigationBar: widget.bottomNavigationBar,
+      body: cc.isConnected
+
+          ? Container(
+        decoration: gradientBackground([
+          Colors.red.shade100,
+          Colors.white,
+          Colors.white,
+          ]),
+        child:  widget.body,
+      )
+
+
+          : noInternetScreen((){
+        cc.checkConnectivity();
+      }),
+      bottomNavigationBar : cc.isConnected?widget.bottomNavigationBar :  null,
     );
   }
 }

@@ -1,13 +1,7 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:productcatalogue/src/Scaffold/viewModel/scaffoldViewModel.dart';
-import 'package:productcatalogue/src/Selected%20Category/view/selectedCategoryView.dart';
-import 'package:productcatalogue/src/shop/View/shopView.dart';
-import 'package:provider/provider.dart';
-import 'package:star_rating/star_rating.dart';
-import '../../productDetail/view/productDetailView.dart';
 import '../../commonWidgets/commonWidgets.dart';
-import '../viewModel/homeViewModel.dart';
 
 class homeScreenView extends StatefulWidget {
   @override
@@ -20,13 +14,7 @@ class _HomeScreenViewState extends State<homeScreenView> {
   @override
   Widget build(BuildContext context) {
     return BaseScaffold(
-      body: Container(
-        decoration: gradientBackground([
-          Colors.red.shade100,
-          Colors.white,
-          Colors.white,
-        ]),
-        child: ListView(
+      body: ListView(
           children: [
             buildImageStack("asset/images/pic5.png", "Fashion\nsale",
                 onPressed: () {}),
@@ -151,9 +139,6 @@ class _HomeScreenViewState extends State<homeScreenView> {
             ),
           ],
         ),
-      ),
-      bottomNavigationBar:
-          bottomNavigationBarWidget(context, homeViewModelObject.selectedIndex),
     );
   }
 }

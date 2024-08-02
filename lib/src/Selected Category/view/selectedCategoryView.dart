@@ -3,6 +3,7 @@ import 'package:productcatalogue/src/Scaffold/viewModel/scaffoldViewModel.dart';
 import 'package:productcatalogue/src/home/viewModel/homeViewModel.dart';
 import 'package:provider/provider.dart';
 import 'package:star_rating/star_rating.dart';
+import 'package:uuid/uuid.dart';
 
 import '../../commonWidgets/commonWidgets.dart';
 import '../../productDetail/view/productDetailView.dart';
@@ -23,13 +24,7 @@ class _selectedCategoryViewState extends State<selectedCategoryView> {
   Widget build(BuildContext context) {
     final String category = ModalRoute.of(context)?.settings.arguments as String;
     return BaseScaffold(
-      body: Container(
-        decoration: gradientBackground([
-          Colors.red.shade100,
-          Colors.white,
-          Colors.white,
-        ]),
-        child: Column(
+      body: Column(
           children: [
             Expanded(
               child: FutureBuilder(
@@ -50,15 +45,17 @@ class _selectedCategoryViewState extends State<selectedCategoryView> {
                       itemCount: filteredProducts.length,
                       itemBuilder: (context, index) {
                         double rate = filteredProducts[index].rating ?? 0.0;
+                        Uuid id=Uuid();
+                        var nId= id.v4();
                         return Container(
                           width: 150,
                           child: InkWell(
                             onTap: () {
-                             // Navigator.pushNamed(context, '/productDetails',arguments: filteredProducts[index]);
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) => productDetailView(selectedItem: filteredProducts[index],
+                                    heroTag:nId ,
                                   ),
                                 ),
                               );
@@ -112,7 +109,7 @@ class _selectedCategoryViewState extends State<selectedCategoryView> {
                                       bottom: 80,
                                       child: InkWell(
                                         onTap: () {
-                                          viewModel.toggleButton(index);
+                                          viewModel.toggleButton(filteredProducts[index].title);
                                         },
                                         child: Container(
                                           width: 30,
@@ -122,7 +119,7 @@ class _selectedCategoryViewState extends State<selectedCategoryView> {
                                             borderRadius: BorderRadius.circular(15),
                                           ),
                                           child: Icon(
-                                            viewModel.favouriteStatus[index] == false
+                                            viewModel.favouriteProducts.contains(filteredProducts[index])
                                                 ? Icons.favorite
                                                 : Icons.favorite_border_outlined,
                                             size: 15,
@@ -148,7 +145,6 @@ class _selectedCategoryViewState extends State<selectedCategoryView> {
             }, child: Text("Back"))
           ],
         ),
-      ),
     );
   }
 }

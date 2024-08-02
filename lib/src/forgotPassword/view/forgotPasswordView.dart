@@ -15,9 +15,7 @@ class _forgotPasswordView extends State<forgotPasswordView>{
   @override
   Widget build(BuildContext context){
     return BaseScaffold(
-      body: Container(
-        decoration: gradientBackground([Colors.red.shade100, Colors.white, Colors.white,]),
-        child: listViewWithPadding([
+      body:  listViewWithPadding([
           Align(
             alignment: Alignment.topLeft,
             child: IconButton(onPressed: (){
@@ -32,7 +30,6 @@ class _forgotPasswordView extends State<forgotPasswordView>{
           spacingInHeight(context, 0.06),
           buildButton("Send",(){}),
         ]),
-      ),
     );
   }
 }

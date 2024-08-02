@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:productcatalogue/src/Scaffold/viewModel/scaffoldViewModel.dart';
 import '../../commonWidgets/commonWidgets.dart';
 
 class splashScreenView extends StatefulWidget{
@@ -21,10 +22,8 @@ class _splashScreenView extends State<splashScreenView>{
 
   @override
   Widget build(BuildContext context){
-    return Scaffold(
-      body: Container(
-        decoration: gradientBackground([Colors.red.shade100, Colors.white, Colors.white,]),
-        child: Center(
+    return BaseScaffold(
+      body: Center(
           child: ShaderMask(
             shaderCallback: (bounds) => LinearGradient(
               colors: [
@@ -45,7 +44,6 @@ class _splashScreenView extends State<splashScreenView>{
             ),
           ),
         ),
-      ),
       );
   }
 }

@@ -10,18 +10,13 @@ class shopView extends StatefulWidget {
 }
 
 class _shopViewState extends State<shopView> {
-  int selectedIndex = 1;
 
-  void onItemTapped(int index) {
-    setState(() {
-      selectedIndex = index;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
     return BaseScaffold(
       appBar: AppBar(
+          automaticallyImplyLeading: false,
         backgroundColor: Colors.red.shade50,
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -31,15 +26,7 @@ class _shopViewState extends State<shopView> {
             Icon(Icons.search),
           ],
         )),
-      body: Container(
-        decoration: gradientBackground([
-          Colors.red.shade100,
-          Colors.white,
-          Colors.white,
-        ]),
-        child: listViewWithPadding([
-
-
+      body:  listViewWithPadding([
           Container(
             child: Padding(
               padding: const EdgeInsets.only(top: 15,bottom: 15),
@@ -63,10 +50,7 @@ class _shopViewState extends State<shopView> {
           categoryCard("Shirt", "asset/images/shirt.png"),
           categoryCard("Shoes", "asset/images/shoes.png"),
           categoryCard("Accessories", "asset/images/pic7.png"),
-
         ]),
-      ),
-        bottomNavigationBar:bottomNavigationBarWidget(context,selectedIndex)
     );
   }
 }

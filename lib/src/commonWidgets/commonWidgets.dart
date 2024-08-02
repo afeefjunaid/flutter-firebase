@@ -1,7 +1,9 @@
+import 'dart:developer';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:star_rating/star_rating.dart';
+import 'package:uuid/uuid.dart';
 import '../home/view/homeScreenView.dart';
 import '../home/viewModel/homeViewModel.dart';
 import '../productDetail/view/productDetailView.dart';
@@ -193,51 +195,7 @@ Widget buildSectionTitle(String? title) {
   );
 }
 
-bottomNavigationBarWidget(BuildContext context, int currentIndex) {
-  return BottomNavigationBar(
-      items: [
-        BottomNavigationBarItem(
-          icon: IconButton(
-            onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => homeScreenView()));
-            },
-            icon: Icon(Icons.home_outlined),
-          ),
-          label: 'Home',
-        ),
-        BottomNavigationBarItem(
-          icon: IconButton(
-            onPressed: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => shopView()));
-            },
-            icon: Icon(Icons.shopping_cart_outlined),
-          ),
-          label: 'Shop',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.shopping_bag_outlined),
-          label: 'Bag',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.favorite_border),
-          label: 'Favourites',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.person_2_outlined),
-          label: 'Profile',
-        ),
-      ],
-      showSelectedLabels: true,
-      showUnselectedLabels: true,
-      currentIndex: currentIndex,
-      unselectedItemColor: Colors.black,
-      selectedItemColor: Colors.red,
-      onTap: (int index) {
-        currentIndex = index;
-      });
-}
+
 
 categoryCard(String title, String imagePath) {
   return Padding(
@@ -293,25 +251,26 @@ listViewBuilder({String? category}) {
             itemCount: filteredProducts.length,
             itemBuilder: (context, index) {
               double rate = filteredProducts[index].rating ?? 0.0;
+              Uuid id=Uuid();
+              var nId= id.v4();
               return Container(
                 width: 150,
                 child: InkWell(
                   onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => productDetailView(
-                                selectedItem: filteredProducts[index])));
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => productDetailView(selectedItem: filteredProducts[index],heroTag:nId ,)));
                   },
                   child: Stack(clipBehavior: Clip.none, children: [
                     Card(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Image.network(filteredProducts[index].image,
-                              height: 150,
-                              width: double.infinity,
-                              fit: BoxFit.cover),
+                          Hero(
+                            tag:nId,
+                            child: Image.network(filteredProducts[index].image,
+                                height: 150,
+                                width: double.infinity,
+                                fit: BoxFit.cover),
+                          ),
                           SizedBox(height: 8),
                           Padding(
                             padding: const EdgeInsets.only(left: 3.0, top: 10),
@@ -344,7 +303,7 @@ listViewBuilder({String? category}) {
                         bottom: 80,
                         child: InkWell(
                           onTap: () {
-                            viewModel.toggleButton(index);
+                            viewModel.toggleButton(filteredProducts[index]);
                           },
                           child: Container(
                             width: 30,
@@ -354,7 +313,7 @@ listViewBuilder({String? category}) {
                               borderRadius: BorderRadius.circular(15),
                             ),
                             child: Icon(
-                              viewModel.favouriteStatus[index] == false
+                              viewModel.favouriteProducts.contains(filteredProducts[index])
                                   ? Icons.favorite
                                   : Icons.favorite_border_outlined,
                               size: 15,

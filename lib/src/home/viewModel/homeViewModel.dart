@@ -10,7 +10,7 @@ class homeViewModel extends ChangeNotifier {
   int selectedIndex = 0;
   bool buttonState = true;
   late Future futureProducts;
-  Map<int, bool> favouriteStatus={};
+  List<dynamic> favouriteProducts=[];
 
   homeViewModel() {
     futureProducts = fetchProducts();
@@ -21,8 +21,14 @@ class homeViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  void toggleButton(index) {
-    favouriteStatus[index] = !(favouriteStatus[index] ?? true);
+  void toggleButton(dynamic obj) {
+
+    if(!favouriteProducts.contains(obj)) {
+        favouriteProducts.add(obj);
+    }
+    else{
+      favouriteProducts.remove(obj);
+    }
     notifyListeners();
   }
 

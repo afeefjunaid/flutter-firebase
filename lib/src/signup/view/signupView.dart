@@ -18,9 +18,7 @@ class _signupView extends State<signupView>{
   Widget build(BuildContext context){
     return Scaffold(
         resizeToAvoidBottomInset: true,
-      body: Container(
-        decoration: gradientBackground([Colors.red.shade100, Colors.white, Colors.white]),
-        child:listViewWithPadding(
+      body: listViewWithPadding(
           [
             headingText("Signup"),
             spacingInHeight(context,0.01),
@@ -42,9 +40,6 @@ class _signupView extends State<signupView>{
             buildSocialMediaRow(),
           ],
         ),
-      )
-
-
     );
   }
 }
