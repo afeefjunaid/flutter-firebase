@@ -5,45 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0d9b799a-49fc-4442-b7fb-fb45e8271a36" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/android/app/proguard-rules.pro" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/src/Cart/view/cartView.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/src/Cart/viewModel/cartViewModel.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/src/Favourites/view/favouritesModel.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/src/My Orders/View Model/My Orders View Model.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/src/My Orders/view/My Orders View.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/src/My Profile/view/My Profile View.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/src/No Internet Screen/view/noInternetScreen.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/src/Order Confirmed Splash Screen/view/Order Confirmed Splash Screen.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/src/Stripe Payment/viewModel/stripePaymentViewModel.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/src/checkout/view/checkoutView.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/src/hive/hive.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/src/hive/hive.g.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/src/landingScreen/view/landingScreenView.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/kotlin/com/example/productcatalogue/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/kotlin/com/example/productcatalogue/MainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/values-night/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/res/values-night/styles.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/res/values/styles.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/settings.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/Base.lproj/LaunchScreen.storyboard" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Runner/Base.lproj/LaunchScreen.storyboard" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Runner/Info.plist" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/API/apiClient.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/API/apiClient.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/Cart/view/cartView.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/Cart/view/cartView.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/src/Connectivity/viewModel/connectivityViewModel.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/Connectivity/viewModel/connectivityViewModel.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/Favourites/view/favouritesModel.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/Favourites/view/favouritesModel.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/My Orders/View Model/My Orders View Model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/My Orders/View Model/My Orders View Model.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/No Internet Screen/view/noInternetScreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/No Internet Screen/view/noInternetScreen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/Order Confirmed Splash Screen/view/Order Confirmed Splash Screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/Order Confirmed Splash Screen/view/Order Confirmed Splash Screen.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/src/Scaffold/viewModel/scaffoldViewModel.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/Scaffold/viewModel/scaffoldViewModel.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/src/Selected Category/view/selectedCategoryView.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/Selected Category/view/selectedCategoryView.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/checkout/view/checkoutView.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/checkout/view/checkoutView.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/src/commonWidgets/commonWidgets.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/commonWidgets/commonWidgets.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/src/forgotPassword/view/forgotPasswordView.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/forgotPassword/view/forgotPasswordView.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/home/model/homeScreenModel.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/home/model/homeScreenModel.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/src/home/view/homeScreenView.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/home/view/homeScreenView.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/src/home/viewModel/homeViewModel.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/home/viewModel/homeViewModel.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/landingScreen/view/landingScreenView.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/landingScreen/view/landingScreenView.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/src/login/view/loginView.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/login/view/loginView.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/src/productDetail/view/productDetailView.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/productDetail/view/productDetailView.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/src/shop/View/shopView.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/shop/View/shopView.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/signup/view/signupView.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/signup/view/signupView.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/src/splashScreen/view/splashScreenView.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/splashScreen/view/splashScreenView.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/macos/Flutter/GeneratedPluginRegistrant.swift" beforeDir="false" afterPath="$PROJECT_DIR$/macos/Flutter/GeneratedPluginRegistrant.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,27 +76,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Flutter.cartViewModel.dart.executor&quot;: &quot;Run&quot;,
-    &quot;Flutter.main.dart.executor&quot;: &quot;Run&quot;,
-    &quot;Flutter.productDetailView.dart.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
-    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;ProductCatalogue&quot;,
-    &quot;io.flutter.reload.alreadyRun&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Flutter/Flutter Projects/adminpanel&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Flutter.cartViewModel.dart.executor": "Run",
+    "Flutter.main.dart.executor": "Run",
+    "Flutter.productDetailView.dart.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "ProductCatalogue",
+    "ignore.virus.scanning.warn.message": "true",
+    "io.flutter.reload.alreadyRun": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Flutter/Flutter Projects/adminpanel",
+    "project.structure.last.edited": "SDKs",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "show.migrate.to.gradle.popup": "false"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Flutter\Flutter Projects\productcatalogue\asset\images" />

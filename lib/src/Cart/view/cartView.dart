@@ -1,11 +1,9 @@
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:productcatalogue/src/Cart/viewModel/cartViewModel.dart';
 import 'package:productcatalogue/src/Scaffold/viewModel/scaffoldViewModel.dart';
 import 'package:productcatalogue/src/checkout/view/checkoutView.dart';
 import 'package:provider/provider.dart';
-import 'package:star_rating/star_rating.dart';
 import 'package:uuid/uuid.dart';
 import '../../commonWidgets/commonWidgets.dart';
 import '../../productDetail/view/productDetailView.dart';

@@ -1,9 +1,7 @@
 import 'dart:async';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:productcatalogue/src/Scaffold/viewModel/scaffoldViewModel.dart';
-import '../../commonWidgets/commonWidgets.dart';
 
 class splashScreenView extends StatefulWidget{
   @override

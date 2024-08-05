@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:productcatalogue/src/Cart/viewModel/cartViewModel.dart';
 import 'package:productcatalogue/src/Order%20Confirmed%20Splash%20Screen/view/Order%20Confirmed%20Splash%20Screen.dart';
@@ -7,7 +5,6 @@ import 'package:productcatalogue/src/Scaffold/viewModel/scaffoldViewModel.dart';
 import 'package:productcatalogue/src/Stripe%20Payment/viewModel/stripePaymentViewModel.dart';
 import 'package:productcatalogue/src/commonWidgets/commonWidgets.dart';
 import 'package:provider/provider.dart';
-
 import '../../My Orders/View Model/My Orders View Model.dart';
 
 class checkoutView extends StatefulWidget {

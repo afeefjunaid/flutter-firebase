@@ -1,4 +1,3 @@
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -6,7 +5,6 @@ import 'dart:convert';
 
 import 'package:productcatalogue/src/home/view/homeScreenView.dart';
 
-import '../home/model/homeScreenModel.dart';
 
 class ApiClient{
   static String baseUrl="https://fakestoreapi.com/";

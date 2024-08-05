@@ -1,7 +1,5 @@
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:productcatalogue/src/Cart/view/cartView.dart';
 import 'package:productcatalogue/src/Cart/viewModel/cartViewModel.dart';
 import 'package:productcatalogue/src/Scaffold/viewModel/scaffoldViewModel.dart';
 import 'package:productcatalogue/src/home/viewModel/homeViewModel.dart';

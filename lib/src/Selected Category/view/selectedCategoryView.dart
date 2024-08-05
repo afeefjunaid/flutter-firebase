@@ -5,7 +5,6 @@ import 'package:provider/provider.dart';
 import 'package:star_rating/star_rating.dart';
 import 'package:uuid/uuid.dart';
 
-import '../../commonWidgets/commonWidgets.dart';
 import '../../productDetail/view/productDetailView.dart';
 
 class selectedCategoryView extends StatefulWidget {

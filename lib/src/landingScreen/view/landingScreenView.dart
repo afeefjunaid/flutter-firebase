@@ -1,4 +1,3 @@
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:productcatalogue/src/Favourites/view/favouritesModel.dart';
@@ -8,7 +7,6 @@ import 'package:productcatalogue/src/Scaffold/viewModel/scaffoldViewModel.dart';
 
 import '../../Cart/view/cartView.dart';
 import '../../home/view/homeScreenView.dart';
-import '../../login/view/loginView.dart';
 import '../../shop/View/shopView.dart';
 
 class landingScreen extends StatefulWidget {

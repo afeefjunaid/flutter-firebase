@@ -11,8 +11,6 @@ class cartViewModel extends ChangeNotifier{
 
   clearCart()
   {
-
-
     cartItems.clear();
     countofItems.clear();
     notifyListeners();

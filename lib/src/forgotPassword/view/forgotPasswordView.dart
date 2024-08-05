@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:productcatalogue/src/Scaffold/viewModel/scaffoldViewModel.dart';
 import 'package:productcatalogue/src/commonWidgets/commonWidgets.dart';

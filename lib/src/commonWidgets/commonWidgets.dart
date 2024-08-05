@@ -1,13 +1,10 @@
-import 'dart:developer';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:star_rating/star_rating.dart';
 import 'package:uuid/uuid.dart';
-import '../home/view/homeScreenView.dart';
 import '../home/viewModel/homeViewModel.dart';
 import '../productDetail/view/productDetailView.dart';
-import '../shop/View/shopView.dart';
 
 buildTextFormField(String? hintText, TextEditingController? controller,
     {bool obscureText = false, String? Function(String?)? validator}) {

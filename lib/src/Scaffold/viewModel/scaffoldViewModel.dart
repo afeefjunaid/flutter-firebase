@@ -1,7 +1,5 @@
-import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:productcatalogue/src/No%20Internet%20Screen/view/noInternetScreen.dart';
-import 'package:productcatalogue/src/login/view/loginView.dart';
 import 'package:provider/provider.dart';
 import '../../Connectivity/viewModel/connectivityViewModel.dart';
 import '../../commonWidgets/commonWidgets.dart';

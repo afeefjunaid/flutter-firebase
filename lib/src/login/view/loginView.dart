@@ -1,8 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:productcatalogue/src/forgotPassword/view/forgotPasswordView.dart';
-import 'package:productcatalogue/src/home/view/homeScreenView.dart';
 import 'package:productcatalogue/src/landingScreen/view/landingScreenView.dart';
 import 'package:productcatalogue/src/signup/view/signupView.dart';
 import '../../Scaffold/viewModel/scaffoldViewModel.dart';

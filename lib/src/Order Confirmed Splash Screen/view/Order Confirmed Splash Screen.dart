@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:productcatalogue/src/Scaffold/viewModel/scaffoldViewModel.dart';
-import 'package:productcatalogue/src/home/view/homeScreenView.dart';
 
 class orderConfirmedSplashScreen extends StatefulWidget {
   const orderConfirmedSplashScreen({super.key});

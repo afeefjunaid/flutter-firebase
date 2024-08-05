@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:productcatalogue/src/Connectivity/viewModel/connectivityViewModel.dart';
-import 'package:productcatalogue/src/Scaffold/viewModel/scaffoldViewModel.dart';
 
-import '../../commonWidgets/commonWidgets.dart';
 
 class noInternetScreen extends StatefulWidget {
   Function()? onPresse;
