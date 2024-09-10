@@ -1,10 +1,7 @@
 plugins {
     id "com.android.application"
-    // START: FlutterFire Configuration
     id 'com.google.gms.google-services'
-    // END: FlutterFire Configuration
     id "kotlin-android"
-    // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
     id "dev.flutter.flutter-gradle-plugin"
 }
 
@@ -42,14 +39,13 @@ android {
     }
 
     compileOptions {
-//        coreLibraryDesugaringEnabled true
-        sourceCompatibility JavaVersion.VERSION_17 // Updated to match the latest Java version
+        sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
     }
 
     buildTypes {
         release {
-            signingConfig = signingConfigs.debug // For testing purposes, configure your own signingConfig for production
+            signingConfig = signingConfigs.debug
         }
     }
 }
@@ -59,7 +55,5 @@ flutter {
 }
 
 dependencies {
-    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.1.0'
-
-    // Add other dependencies here as needed
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.1.2'
 }
