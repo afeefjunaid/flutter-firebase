@@ -30,6 +30,7 @@ class authenticationViewModel{
     }
   }
 
+  var chk;
 
 Future<bool> login(String email,String pass) async {
   String? deviceToken = await FirebaseMessaging.instance.getToken();
