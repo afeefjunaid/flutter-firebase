@@ -233,8 +233,6 @@ class _selectedChatViewState extends State<selectedChatView> {
           Row(
             children: [
               GestureDetector(
-
-
                 child: Icon(Icons.mic),
               ),
               IconButton(

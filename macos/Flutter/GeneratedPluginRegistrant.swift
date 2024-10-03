@@ -6,6 +6,7 @@ import FlutterMacOS
 import Foundation
 
 import audio_session
+import audioplayers_darwin
 import cloud_firestore
 import firebase_analytics
 import firebase_auth
@@ -19,6 +20,7 @@ import sqflite
 
 func RegisterGeneratedPlugins(registry: FlutterPluginRegistry) {
   AudioSessionPlugin.register(with: registry.registrar(forPlugin: "AudioSessionPlugin"))
+  AudioplayersDarwinPlugin.register(with: registry.registrar(forPlugin: "AudioplayersDarwinPlugin"))
   FLTFirebaseFirestorePlugin.register(with: registry.registrar(forPlugin: "FLTFirebaseFirestorePlugin"))
   FLTFirebaseAnalyticsPlugin.register(with: registry.registrar(forPlugin: "FLTFirebaseAnalyticsPlugin"))
   FLTFirebaseAuthPlugin.register(with: registry.registrar(forPlugin: "FLTFirebaseAuthPlugin"))
